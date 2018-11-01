@@ -1,0 +1,279 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.orchestranetworks.ps</groupId>
+		<artifactId>ebx-jbosswildfly-ear</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<artifactId>app</artifactId>
+	<packaging>ear</packaging>
+	<name>app</name>
+	<description>Builds EAR for JBoss WildFly</description>
+
+	<dependencies>
+		<!-- ADDONS RELATED -->
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx.api.addon</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-adix</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-daqa</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-rpfl</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-dqid</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-gram</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-dama</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-mtrn</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-tese</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-addon-common</artifactId>
+			<type>war</type>
+		</dependency>
+
+		<!-- <dependency> <groupId>com.orchestranetworks.ebx</groupId> <artifactId>ebx-addon-hmfh</artifactId>
+			<type>war</type> </dependency> -->
+		<!-- <dependency> <groupId>com.orchestranetworks.ebx</groupId> <artifactId>ebx-addon-igov</artifactId>
+			<type>war</type> </dependency> -->
+
+
+
+		<!-- PRODUCT RELATED -->
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx.api.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-root-1.0</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-manager</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-dataservices</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx-dma</artifactId>
+			<type>war</type>
+		</dependency>
+
+		<!-- PRODUCT CUSTOMIZATION -->
+		<dependency>
+			<groupId>com.orchestranetworks.ps</groupId>
+			<artifactId>ebx</artifactId>
+			<type>war</type>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- PROJET RELATED -->
+		<dependency>
+			<groupId>com.orchestranetworks.ps</groupId>
+			<artifactId>your-ebx-module</artifactId>
+			<type>war</type>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>1.3.176</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<version>6</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<!-- <finalName>${project.name}_ebx_${ebx.version}_addonsbundle_${addons.version}</finalName> -->
+					<modules>
+						<!-- EBX -->
+
+						<!--
+						<webModule>
+							<groupId>com.orchestranetworks.ps</groupId>
+							<artifactId>ebx</artifactId>
+							<contextRoot>/ebx</contextRoot>
+							<bundleFileName>ebx.war</bundleFileName>
+						</webModule>
+						-->
+						<webModule>
+							<groupId>com.orchestranetworks.ps</groupId>
+							<artifactId>ebx</artifactId>
+							<contextRoot>/ebx</contextRoot>
+							<bundleFileName>ebx.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-root-1.0</artifactId>
+							<contextRoot>/ebx-root-1.0</contextRoot>
+							<bundleFileName>ebx-root-1.0.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-manager</artifactId>
+							<contextRoot>/ebx-manager</contextRoot>
+							<bundleFileName>ebx-manager.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-dataservices</artifactId>
+							<contextRoot>/ebx-dataservices</contextRoot>
+							<bundleFileName>ebx-dataservices.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-dma</artifactId>
+							<contextRoot>/ebx-dma</contextRoot>
+							<bundleFileName>ebx-dma.war</bundleFileName>
+						</webModule>
+
+						<jarModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx.api.core</artifactId>
+							<bundleFileName>ebx.jar</bundleFileName>
+						</jarModule>
+
+						<!-- <webModule> <groupId>com.orchestranetworks.ps</groupId> <artifactId>EBX-Project</artifactId>
+							<contextRoot>/ebx-project</contextRoot> <bundleFileName>ebx-project.war</bundleFileName>
+							</webModule> -->
+
+						<!-- third party libs -->
+
+						<jarModule>
+							<groupId>com.h2database</groupId>
+							<artifactId>h2</artifactId>
+						</jarModule>
+						<!--
+						<jarModule>
+							<groupId>com.oracle.jdbc</groupId>
+							<artifactId>ojdbc7</artifactId>
+						</jarModule>
+						-->
+
+						<webModule>
+							<groupId>com.orchestranetworks.ps</groupId>
+							<artifactId>your-ebx-module</artifactId>
+							<contextRoot>/your-ebx-module</contextRoot>
+							<bundleFileName>your-ebx-module.war</bundleFileName>
+						</webModule>
+
+						<!-- EBX ADDONS -->
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-common</artifactId>
+							<contextRoot>/ebx-addon-common</contextRoot>
+							<bundleFileName>ebx-addon-common.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-adix</artifactId>
+							<contextRoot>/ebx-addon-adix</contextRoot>
+							<bundleFileName>ebx-addon-adix.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-daqa</artifactId>
+							<contextRoot>/ebx-addon-daqa</contextRoot>
+							<bundleFileName>ebx-addon-daqa.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-dqid</artifactId>
+							<contextRoot>/ebx-addon-dqid</contextRoot>
+							<bundleFileName>ebx-addon-dqid.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-gram</artifactId>
+							<contextRoot>/ebx-addon-gram</contextRoot>
+							<bundleFileName>ebx-addon-gram.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-mtrn</artifactId>
+							<contextRoot>/ebx-addon-mtrn</contextRoot>
+							<bundleFileName>ebx-addon-mtrn.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-rpfl</artifactId>
+							<contextRoot>/ebx-addon-rpfl</contextRoot>
+							<bundleFileName>ebx-addon-rpfl.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-tese</artifactId>
+							<contextRoot>/ebx-addon-tese</contextRoot>
+							<bundleFileName>ebx-addon-tese.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx-addon-dama</artifactId>
+							<contextRoot>/ebx-addon-dama</contextRoot>
+							<bundleFileName>ebx-addon-dama.war</bundleFileName>
+						</webModule>
+
+						<jarModule>
+							<groupId>com.orchestranetworks.ebx</groupId>
+							<artifactId>ebx.api.addon</artifactId>
+						</jarModule>
+
+						<!-- <webModule> <groupId>com.orchestranetworks.ebx</groupId> <artifactId>ebx-addon-hmfh</artifactId>
+							<contextRoot>/ebx-addon-hmfh</contextRoot> <bundleFileName>ebx-addon-hmfh.war</bundleFileName>
+							</webModule> <webModule> <groupId>com.orchestranetworks.ebx</groupId> <artifactId>ebx-addon-igov</artifactId>
+							<contextRoot>/ebx-addon-igov</contextRoot> <bundleFileName>ebx-addon-igov.war</bundleFileName>
+							</webModule> -->
+
+
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

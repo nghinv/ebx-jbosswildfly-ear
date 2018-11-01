@@ -1,4 +1,4 @@
-# ebx-jboss-ear
+# ebx-jbosswildfly-ear
 
 ## setup WildFly
 
@@ -40,10 +40,6 @@ open http://127.0.0.1:8080/ebx
 ## Build
 
 ```
-cd ebx-jboss-ear
-mvn clean install
-cd buildear
-mvn clean install
-cp target/app-1.0.0.ear wildfly-14.0.1.Final/standalone/deployments/
+mvn clean install && cd buildear && mvn clean install && cp target/app-1.0.0.ear wildfly-14.0.1.Final/standalone/deployments/
 wildfly-14.0.1.Final/bin/standalone.sh
 ```

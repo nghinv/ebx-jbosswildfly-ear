@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.orchestranetworks.ps</groupId>
+		<artifactId>ebx-jbosswildfly-ear</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>ebx</artifactId>
+	<packaging>war</packaging>
+
+	<properties>
+		<expectedEndCommentWebXmlEmailSession><![CDATA[ ]]></expectedEndCommentWebXmlEmailSession>
+		<expectedStartCommentWebXmlEmailSession><![CDATA[ ]]></expectedStartCommentWebXmlEmailSession>
+		<ebxHome></ebxHome>
+		<ebxTmpDir>${java.io.tmpdir}</ebxTmpDir>
+		<persistenceFactory></persistenceFactory>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>DEV</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<expectedEndCommentWebXmlEmailSession><![CDATA[ --> ]]></expectedEndCommentWebXmlEmailSession>
+				<expectedStartCommentWebXmlEmailSession><![CDATA[ <!-- ]]></expectedStartCommentWebXmlEmailSession>
+				<ebxHome>/app/config/mdm</ebxHome>
+				<ebxTmpDir>/app/tmp</ebxTmpDir>
+				<persistenceFactory>oracle</persistenceFactory>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/web.xml</include>
+								<include>**/jboss-web.xml</include>
+								<include>**/ebx.properties</include>
+							</includes>
+						</resource>
+					</webResources>
+					<!-- <warSourceDirectory>src/main/webapp</warSourceDirectory> <webXml>src/main/webapp/WEB-INF/web.xml</webXml> -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

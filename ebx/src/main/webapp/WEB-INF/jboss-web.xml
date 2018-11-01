@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+
+	<!-- <resource-ref>
+		<res-ref-name>jms/EBX_JMSConnectionFactory</res-ref-name>
+		<jndi-name>java:/EBX_JMSConnectionFactory</jndi-name>
+	</resource-ref> -->
+
+	<!--
+	 -->
+
+	<!-- ${expectedEndCommentWebXmlEmailSession} <resource-ref>
+		<res-ref-name>mail/EBX_MAIL_SESSION</res-ref-name>
+		<jndi-name>java:/EBX_MAIL_SESSION</jndi-name>
+	</resource-ref> ${expectedStartCommentWebXmlEmailSession} -->
+
+	<!-- 
+	<resource-ref>
+		<res-ref-name>jdbc/EBX_REPOSITORY</res-ref-name>
+		<jndi-name>java:jboss/datasources/EBX_REPOSITORY</jndi-name>
+	</resource-ref>
+	-->
+
+	<!-- Data services queues-->
+	<!-- <resource-env-ref>
+		<resource-env-ref-name>jms/EBX_QueueIn</resource-env-ref-name>
+		<jndi-name>java:/jms/EBX_QueueIn</jndi-name>
+	</resource-env-ref>
+	<resource-env-ref>
+		<resource-env-ref-name>jms/EBX_QueueFailure</resource-env-ref-name>
+		<jndi-name>java:/jms/EBX_QueueFailure</jndi-name>
+	</resource-env-ref> -->
+
+	<!-- D3 queues -->
+	<!-- <resource-env-ref>
+		<resource-env-ref-name>jms/EBX_D3MasterQueue</resource-env-ref-name>
+		<jndi-name>java:/jms/EBX_D3MasterQueue</jndi-name>
+	</resource-env-ref>
+	<resource-env-ref>
+		<resource-env-ref-name>jms/EBX_D3ReplyQueue</resource-env-ref-name>
+		<jndi-name>java:/jms/EBX_D3ReplyQueue</jndi-name>
+	</resource-env-ref>
+	<resource-env-ref>
+		<resource-env-ref-name>jms/EBX_D3ArchiveQueue</resource-env-ref-name>
+		<jndi-name>java:/jms/EBX_D3ArchiveQueue</jndi-name>
+	</resource-env-ref>
+	<resource-env-ref>
+		<resource-env-ref-name>jms/EBX_D3CommunicationQueue</resource-env-ref-name>
+		<jndi-name>java:/jms/EBX_D3CommunicationQueue</jndi-name>
+	</resource-env-ref>
+ -->
+</jboss-web>

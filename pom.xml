@@ -1,0 +1,254 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.orchestranetworks.ps</groupId>
+	<artifactId>ebx-jbosswildfly-ear</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<name>EBX JBoss WildFly EAR projet</name>
+	<description>Maven root project</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!--
+		JAVA_OPTS="-server -Xms8g -Xmx8g -XX:MaxMetaspaceSize=256m -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+UseCMSInitiatingOccupancyOnly -XX:+ScavengeBeforeFullGC -XX:+CMSScavengeBeforeRemark"
+		-->
+		<ebx.version>5.8.1.1067-0027</ebx.version>
+		<addons.version>5.8.1.1067-0027_addons_3.20.2.0036-0018</addons.version>
+	</properties>
+
+	<modules>
+		<module>your-ebx-module</module>
+		<!--
+			<module>tomcat7</module>
+		-->
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+			<dependency>
+			    <groupId>org.postgresql</groupId>
+			    <artifactId>postgresql</artifactId>
+			    <version>42.2.4</version>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
+			<dependency>
+			    <groupId>com.h2database</groupId>
+			    <artifactId>h2</artifactId>
+			    <version>1.3.176</version>
+			</dependency>
+			<dependency>
+				<groupId>com.oracle.jdbc</groupId>
+				<artifactId>ojdbc7</artifactId>
+				<version>12.1.0.2</version>
+				<type>jar</type>
+			</dependency>
+
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx.api.core</artifactId>
+				<version>${ebx.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx</artifactId>
+				<type>war</type>
+				<version>${ebx.version}</version>
+			</dependency>
+<!--
+			<dependency>
+				<groupId>com.orchestranetworks.ps</groupId>
+				<artifactId>ebx</artifactId>
+				<type>war</type>
+				<version>1.0.0</version>
+			</dependency>
+-->
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-root-1.0</artifactId>
+				<type>war</type>
+				<version>${ebx.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-manager</artifactId>
+				<type>war</type>
+				<version>${ebx.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-dataservices</artifactId>
+				<type>war</type>
+				<version>${ebx.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-dma</artifactId>
+				<type>war</type>
+				<version>${ebx.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx.api.addon</artifactId>
+				<scope>provided</scope>
+				<version>${addons.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-adix</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-daqa</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-dqid</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-gram</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-hmfh</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-igov</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-mtrn</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-rpfl</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-tese</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-dama</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.orchestranetworks.ebx</groupId>
+				<artifactId>ebx-addon-common</artifactId>
+				<version>${addons.version}</version>
+				<type>war</type>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>mickaelgermemont.repo.releases</id>
+			<name>MickaelGermemont EBX Repository Releases</name>
+			<url>http://javastore.mickaelgermemont.com:8081/repository/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>mickaelgermemont.repo.snapshots</id>
+			<name>MickaelGermemont EBX Repository Snapshots</name>
+			<url>http://javastore.mickaelgermemont.com:8081/repository/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>mickaelgermemont.repo.releases</id>
+			<name>MickaelGermemont EBX Repository</name>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<url>http://javastore.mickaelgermemont.com:8081/repository/releases</url>
+			<layout>default</layout>
+		</repository>
+		<repository>
+			<id>mickaelgermemont.repo.snapshots</id>
+			<name>MickaelGermemont EBX Repository</name>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+			<url>http://javastore.mickaelgermemont.com:8081/repository/snapshots</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mickaelgermemont.repo.releases</id>
+			<name>MickaelGermemont EBX Repository</name>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<url>http://javastore.mickaelgermemont.com:8081/repository/releases</url>
+			<layout>default</layout>
+		</pluginRepository>
+		<pluginRepository>
+			<id>mickaelgermemont.repo.snapshots</id>
+			<name>MickaelGermemont EBX Repository</name>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
+			<url>http://javastore.mickaelgermemont.com:8081/repository/snapshots</url>
+			<layout>default</layout>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

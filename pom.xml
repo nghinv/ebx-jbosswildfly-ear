@@ -1,11 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.orchestranetworks.ps</groupId>
+
+	<groupId>com.on.ps.mdm</groupId>
 	<artifactId>ebx-jbosswildfly-ear</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
-	<name>EBX JBoss WildFly EAR projet</name>
+	<name>EBX JBoss WildFly root project</name>
 	<description>Maven root project</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -17,21 +18,13 @@
 	</properties>
 
 	<modules>
-		<module>your-ebx-module</module>
-		<!--
-			<module>tomcat7</module>
-		-->
+		<module>ebx</module>
+		<module>wildfly-mdm</module>
+		<module>buildear</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
-
-			<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-			<dependency>
-			    <groupId>org.postgresql</groupId>
-			    <artifactId>postgresql</artifactId>
-			    <version>42.2.4</version>
-			</dependency>
 			<!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
 			<dependency>
 			    <groupId>com.h2database</groupId>

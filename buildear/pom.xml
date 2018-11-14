@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.orchestranetworks.ps</groupId>
+		<groupId>com.on.ps.mdm</groupId>
 		<artifactId>ebx-jbosswildfly-ear</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
-	<artifactId>app</artifactId>
+	<artifactId>buildear</artifactId>
 	<packaging>ear</packaging>
-	<name>app</name>
+	<name>buildear</name>
 	<description>Builds EAR for JBoss WildFly</description>
 
 	<dependencies>
@@ -70,13 +70,16 @@
 		<!-- <dependency> <groupId>com.orchestranetworks.ebx</groupId> <artifactId>ebx-addon-igov</artifactId>
 			<type>war</type> </dependency> -->
 
-
-
 		<!-- PRODUCT RELATED -->
 		<dependency>
 			<groupId>com.orchestranetworks.ebx</groupId>
 			<artifactId>ebx.api.core</artifactId>
 		</dependency>
+		<!-- <dependency>
+			<groupId>com.orchestranetworks.ebx</groupId>
+			<artifactId>ebx</artifactId>
+			<type>war</type>
+		</dependency> -->
 		<dependency>
 			<groupId>com.orchestranetworks.ebx</groupId>
 			<artifactId>ebx-root-1.0</artifactId>
@@ -100,7 +103,7 @@
 
 		<!-- PRODUCT CUSTOMIZATION -->
 		<dependency>
-			<groupId>com.orchestranetworks.ps</groupId>
+			<groupId>com.on.ps.mdm</groupId>
 			<artifactId>ebx</artifactId>
 			<type>war</type>
 			<version>${project.version}</version>
@@ -108,17 +111,16 @@
 
 		<!-- PROJET RELATED -->
 		<dependency>
-			<groupId>com.orchestranetworks.ps</groupId>
-			<artifactId>your-ebx-module</artifactId>
+			<groupId>com.on.ps.mdm</groupId>
+			<artifactId>wildfly-mdm</artifactId>
 			<type>war</type>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
-				<groupId>com.h2database</groupId>
-				<artifactId>h2</artifactId>
-				<version>1.3.176</version>
-		</dependency>
 
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -133,16 +135,9 @@
 					<modules>
 						<!-- EBX -->
 
-						<!--
 						<webModule>
-							<groupId>com.orchestranetworks.ps</groupId>
-							<artifactId>ebx</artifactId>
-							<contextRoot>/ebx</contextRoot>
-							<bundleFileName>ebx.war</bundleFileName>
-						</webModule>
-						-->
-						<webModule>
-							<groupId>com.orchestranetworks.ps</groupId>
+							<!-- <groupId>com.orchestranetworks.ebx</groupId> -->
+							<groupId>com.on.ps.mdm</groupId>
 							<artifactId>ebx</artifactId>
 							<contextRoot>/ebx</contextRoot>
 							<bundleFileName>ebx.war</bundleFileName>
@@ -196,10 +191,10 @@
 						-->
 
 						<webModule>
-							<groupId>com.orchestranetworks.ps</groupId>
-							<artifactId>your-ebx-module</artifactId>
-							<contextRoot>/your-ebx-module</contextRoot>
-							<bundleFileName>your-ebx-module.war</bundleFileName>
+							<groupId>com.on.ps.mdm</groupId>
+							<artifactId>wildfly-mdm</artifactId>
+							<contextRoot>/wildfly-mdm</contextRoot>
+							<bundleFileName>wildfly-mdm.war</bundleFileName>
 						</webModule>
 
 						<!-- EBX ADDONS -->
@@ -268,7 +263,6 @@
 							</webModule> <webModule> <groupId>com.orchestranetworks.ebx</groupId> <artifactId>ebx-addon-igov</artifactId>
 							<contextRoot>/ebx-addon-igov</contextRoot> <bundleFileName>ebx-addon-igov.war</bundleFileName>
 							</webModule> -->
-
 
 					</modules>
 				</configuration>
